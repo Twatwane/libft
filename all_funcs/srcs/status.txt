@@ -4,8 +4,8 @@
 • isascii  X
 • isprint  X
 • strlen   X
-• memset
-• bzero
+• memset   X
+• bzero    X
 • memcpy
 • memmove
 • strlcpy  X
@@ -22,6 +22,6 @@
 • calloc
 • strdup   X
 
-16 / 23
+18 / 23
 
 
