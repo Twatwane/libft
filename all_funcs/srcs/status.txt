@@ -1,3 +1,5 @@
+III.2 Partie 1 - Fonctions de la libc
+
 • isalpha  X
 • isdigit  X
 • isalnum  X
@@ -23,5 +25,26 @@
 • strdup   X
 
 23 / 23
+
+III.3 Partie 2 - Fonctions supplémentaires
+
+Depuis 42 : Ajouter un ft_strstr()
+            Ajouter ft_strjoin()
+            Ajouter ft_split()
+            Faire ft_putnbr_fd() grâce à ft_putnbr()
+
+• ft_substr  - - X
+• ft_strjoin     O <<
+• ft_strtrim - - O
+• ft_split       O <<
+• ft_itoa  - - - O
+• ft_strmapi     O
+• ft_striteri  - O
+• ft_putchar_fd  O <<
+• ft_putstr_fd   O <<
+• ft_putendl_fd  O <<
+• ft_putnbr_fd   O <<
+
+~ 7 / 11
 
 
