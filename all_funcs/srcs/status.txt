@@ -1,4 +1,8 @@
-III.2 Partie 1 - Fonctions de la libc
+O  -  not done
+X  -  done
+<< -  to do
+
+III.2 Partie 1 - Fonctions de la libc - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 • isalpha  X
 • isdigit  X
@@ -26,7 +30,7 @@ III.2 Partie 1 - Fonctions de la libc
 
 23 / 23
 
-III.3 Partie 2 - Fonctions supplémentaires
+III.3 Partie 2 - Fonctions supplémentaires - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Depuis 42 : Ajouter un ft_strstr()
             Ajouter ft_strjoin()
@@ -35,7 +39,7 @@ Depuis 42 : Ajouter un ft_strstr()
 
 • ft_substr  - - X
 • ft_strjoin     O <<
-• ft_strtrim - - O
+• ft_strtrim - - X
 • ft_split       O <<
 • ft_itoa  - - - O
 • ft_strmapi     O
@@ -45,6 +49,14 @@ Depuis 42 : Ajouter un ft_strstr()
 • ft_putendl_fd  O <<
 • ft_putnbr_fd   O <<
 
-~ 7 / 11
+~ 8 / 11
+
+X ADDED - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+is_in
+ft_strncpy
+ft_strstr <<
+
+
 
 
