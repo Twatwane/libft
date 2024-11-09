@@ -6,8 +6,8 @@
 • strlen   X
 • memset   X
 • bzero    X
-• memcpy
-• memmove
+• memcpy   X
+• memmove  X
 • strlcpy  X
 • strlcat  X
 • toupper  X
@@ -15,13 +15,13 @@
 • strchr   X
 • strrchr  X
 • strncmp  X
-• memchr
-• memcmp
+• memchr   X
+• memcmp   X
 • strnstr  X
 • atoi     X
-• calloc
+• calloc   X
 • strdup   X
 
-18 / 23
+23 / 23
 
 
