@@ -42,14 +42,14 @@ Depuis 42 : Ajouter un ft_strstr()
 • ft_strtrim - - X
 • ft_split       <<
 • ft_itoa  - - - X
-• ft_strmapi     O
-• ft_striteri  - O
+• ft_strmapi     X
+• ft_striteri  - X
 • ft_putchar_fd  <<
 • ft_putstr_fd   <<
 • ft_putendl_fd  <<
 • ft_putnbr_fd   <<
 
-~ 9 / 11
+~ 11 / 11
 
 ADDED - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 

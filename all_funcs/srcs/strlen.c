@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   strlen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 10:00:08 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/08 12:19:09 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/10 11:24:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *str)
+size_t ft_strlen(char *str)
 {
-    int    counter;
+    size_t    counter;
 
     counter = 0;
     while (str[counter] != '\0')
