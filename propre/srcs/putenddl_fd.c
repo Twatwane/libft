@@ -6,7 +6,7 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 21:12:32 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 10:50:08 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 12:25:23 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	ft_putendl_fd(char *str, int fd)
 		write(fd, &str[i], 1);
 		i++;
 	}
-	write(fd, '\n', 1);
+	write(fd, "\n", 1);
 }

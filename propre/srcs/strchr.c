@@ -6,19 +6,19 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 21:12:32 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 10:52:37 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 12:32:02 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *strchr(const char *str, int c)
+char	*strchr(const char *str, int c)
 {
-    int i;
+	int	i;
 
-    i = -1;
-    while (i++, str[i])
-        if (str[i] == c)
-            return (&str[i]);
-    return (NULL);
+	i = -1;
+	while (i++, str[i])
+		if (str[i] == c)
+			return ((char *)&str[i]);
+	return (NULL);
 }

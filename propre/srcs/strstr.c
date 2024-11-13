@@ -6,13 +6,13 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 23:27:30 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 10:56:36 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 12:29:17 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const char	*go_to_where_found(char *str, int i, int j)
+static char	*go_to_where_found(char *str, int i, int j)
 {
 	if (j > 0)
 	{
@@ -23,9 +23,9 @@ const char	*go_to_where_found(char *str, int i, int j)
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	int		i;
-	int		j;
-	char	*null_ptr;
+	int			i;
+	int			j;
+	char		*null_ptr;
 
 	null_ptr = NULL;
 	i = 0;

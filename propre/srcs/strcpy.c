@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalnum.c                                          :+:      :+:    :+:   */
+/*   strcpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 10:00:08 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 10:49:00 by ajosse           ###   ########.fr       */
+/*   Created: 2024/10/02 22:07:02 by ajosse            #+#    #+#             */
+/*   Updated: 2024/11/13 12:26:37 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+char	*ft_strcpy(char *dest, char *src)
 {
-	if (ft_isalpha(c) || (ft_isdigit(c)))
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

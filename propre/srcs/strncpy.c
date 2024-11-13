@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlcpy.c                                          :+:      :+:    :+:   */
+/*   strncpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:53:24 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/08 12:10:37 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 12:51:32 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strncpy(char *dest, char *src, int size)
+void	ft_strncpy(char *dest, const char *src, int size)
 {
 	int	i;
 
@@ -20,10 +20,9 @@ void	ft_strncpy(char *dest, char *src, int size)
 		dest[i] = src[i];
 		i++;
 	}
-
-    while (i < size)
-    {
-        dest[i] = '\0';
-        i++;
-    }
+	while (i < size)
+	{
+		dest[i] = '\0';
+		i++;
+	}
 }

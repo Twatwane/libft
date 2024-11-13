@@ -6,11 +6,11 @@
 #    By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 02:22:30 by ajosse            #+#    #+#              #
-#    Updated: 2024/11/13 10:57:10 by ajosse           ###   ########.fr        #
+#    Updated: 2024/11/13 12:14:49 by ajosse           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILES = isalpha isdigit isalnum isascii isprint strlen memset bzero memcpy memmove strlcpy strlcat toupper tolower strchr strrchr strncmp memchr memcmp strnstr atoi calloc strdup substr strjoin strtrim split itoa strmapi striteri putchar_fd putstr_fd putendl_fd putnbr_fd is_in strncpy strstr strrev strcat
+FILES = isalpha isdigit isalnum isascii isprint strlen memset bzero memcpy memmove strlcpy strlcat toupper tolower strchr strrchr strncmp memchr memcmp strnstr atoi calloc strdup substr strjoin strtrim split itoa strmapi striteri putchar_fd putstr_fd putendl_fd putnbr_fd is_in strncpy strstr strrev strcat strcpy
 
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror

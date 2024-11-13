@@ -6,13 +6,13 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 13:08:30 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 10:55:10 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 12:29:00 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const char	*return_empty_str(void)
+static char	*return_empty_str(void)
 {
 	char	*result;
 
@@ -23,9 +23,9 @@ const char	*return_empty_str(void)
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int		i;
-	int		total_lenght;
-	char	*result;
+	int			i;
+	int			total_lenght;
+	char		*result;
 
 	if (size == 0)
 		return (return_empty_str());

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajosse <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:07:19 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 11:07:46 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 12:52:00 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,17 @@ void			ft_putstr_fd(char *str, int fd);
 char			**ft_split(char *str, char *charset);
 char			*ft_strcat(char *dest, char *src);
 char			*strchr(const char *str, int c);
+char			*ft_strcpy(char *dest, char *src);
 char			*ft_strdup(char *src);
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 char			*ft_strjoin(int size, char **strs, char *sep);
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
-size_t			ft_strlen(char *str);
+size_t			ft_strlen(const char *str);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strncmp(char *s1, char *s2, unsigned int n);
-void			ft_strncpy(char *dest, char *src, int size);
-char			*strnstr(const char *buffer, const char *to_find, size_t len);
+void			ft_strncpy(char *dest, const char *src, int size);
+const char		*strnstr(const char *str, const char *to_find, size_t len);
 char			*strrchr(const char *str, int c);;
 void			ft_strrev(char *str);
 char			*ft_strstr(char *str, char *to_find);

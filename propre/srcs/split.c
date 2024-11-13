@@ -5,51 +5,65 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 21:12:32 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 10:52:27 by ajosse           ###   ########.fr       */
+/*   Created: 2024/10/02 22:07:02 by ajosse            #+#    #+#             */
+/*   Updated: 2024/11/13 12:28:23 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static char	**copy_strings(int k, char *copy, int length)
+{
+	int		i;
+	char	*anti_error;
+	char	**result;
+
+	result = NULL;
+	i = -1;
+	k += 3;
+	while (length--, copy[0] == '\0' && length > 0)
+		copy++;
+	result = (char **) malloc(k * sizeof(char *));
+	while (i++, k--, k > 0)
+	{
+		(*result) = (char *) malloc(ft_strlen(copy) + 1 * sizeof(char));
+		ft_strcpy((*result), copy);
+		if (k > 1)
+			copy += ft_strlen(copy) + 1;
+		while (copy[0] == '\0' && k > 1)
+			copy++;
+		anti_error = *result++;
+	}
+	(*result) = NULL;
+	while (i--, i >= 0)
+		anti_error = *result--;
+	return (result);
+}
+
 char	**ft_split(char *str, char *charset)
 {
-	int	i;
-	int j;
-	int wd_count;
-	char **result;
-	
-	i = ((j = ((wd_count = 0))));
-	while(str[i])
-	{
-		while (is_in(charset, str[i]) == 1 && str[i])
-		{
-			str[i] = '\0';
-			i++;
-		}
-		if (!(str[i]))
-			wd_count--;
-		wd_count++;
-		while ((is_in(charset, str[i]) == 0) && str[i])
-		{
-			i++;
-		}
-	}
-	result = (char **) malloc((wd_count + 1) * sizeof(char *));
-	while (*str == '\0' && wd_count > 0)
-		str++;
-	while (j < wd_count)
-	{
-		result[j] = ft_strdup(str);
-		
-		while ((is_in(charset, *str) == 0) && (*str != '\0'))
-			str++;
-			
-		while (*str == '\0' && j + 1 < wd_count)
-			str++;
+	int		i;
+	int		j;
+	int		k;
+	char	*copy;
 
-		j++;
+	i = ((j = ((k = -1))));
+	copy = malloc(ft_strlen(str) + 1 * sizeof(char));
+	ft_strcpy(copy, str);
+	while (i++, str[i])
+	{
+		j = -1;
+		while (j++, charset[j])
+		{
+			if (copy[i] == charset[j])
+			{
+				copy[i] = '\0';
+				if (i != 0 && copy[i - 1] != '\0')
+					k++;
+				if (str[i + 1] == '\0')
+					k--;
+			}
+		}
 	}
-	result[j] = NULL;
-	return result;
+	return (copy_strings(k, copy, ft_strlen(str)));
 }

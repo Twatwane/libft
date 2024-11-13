@@ -6,13 +6,13 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:58:43 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/08 12:27:19 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 12:52:21 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if (97 <= c <= 122)
-        return (c - 32);
-    return (c);
+	if (97 <= c && c <= 122)
+		return (c - 32);
+	return (c);
 }

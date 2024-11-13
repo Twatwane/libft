@@ -6,13 +6,13 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:58:43 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/08 12:27:12 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 12:52:29 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_topupper(int c)
+int	ft_topupper(int c)
 {
-    if (65 <= c <= 90)
-        return (c + 32);
-    return (c);
+	if (65 <= c && c <= 90)
+		return (c + 32);
+	return (c);
 }
