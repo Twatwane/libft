@@ -6,9 +6,11 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:53:24 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 13:09:48 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 13:18:01 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_strncpy(char *dest, const char *src, size_t size)
 {

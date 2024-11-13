@@ -6,7 +6,7 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 13:04:18 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 13:01:52 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 13:16:39 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
 	size_t	i;
-	int				j;
+	int		j;
 	size_t	ini_dest_lenght;
 
 	ini_dest_lenght = ft_strlen(dest);
