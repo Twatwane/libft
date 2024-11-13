@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   strlcpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 10:00:08 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 11:16:47 by ajosse           ###   ########.fr       */
+/*   Created: 2024/10/09 17:53:24 by ajosse            #+#    #+#             */
+/*   Updated: 2024/11/08 12:10:37 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+void	ft_strncpy(char *dest, char *src, int size)
 {
 	int	i;
-	int	nb_minus_signs;
-	int	result;
 
 	i = 0;
-	result = 0;
-	nb_minus_signs = 0;
-	while ((9 <= str[i] && str[i] <= 13) || str[i] == 32)
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+	while (src[i] && i < size)
 	{
-		if (str[i] == '-')
-			nb_minus_signs++;
+		dest[i] = src[i];
 		i++;
 	}
-	while ('0' <= str[i] && str[i] <= '9')
+	while (i < size)
 	{
-		result *= 10;
-		result += str[i] - 48;
+		dest[i] = '\0';
 		i++;
 	}
-	if (nb_minus_signs % 2 == 1)
-		result *= -1;
-	return (result);
 }

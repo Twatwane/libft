@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   putnbr_fd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 10:00:08 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 11:16:47 by ajosse           ###   ########.fr       */
+/*   Created: 2024/10/10 03:00:47 by ajosse            #+#    #+#             */
+/*   Updated: 2024/11/13 11:58:04 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	int	i;
-	int	nb_minus_signs;
-	int	result;
+	char	c;
 
-	i = 0;
-	result = 0;
-	nb_minus_signs = 0;
-	while ((9 <= str[i] && str[i] <= 13) || str[i] == 32)
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+	if (nb == -2147483648)
 	{
-		if (str[i] == '-')
-			nb_minus_signs++;
-		i++;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	while ('0' <= str[i] && str[i] <= '9')
+	if (nb < 0)
 	{
-		result *= 10;
-		result += str[i] - 48;
-		i++;
+		write(fd, "-", 1);
+		nb = nb * -1;
 	}
-	if (nb_minus_signs % 2 == 1)
-		result *= -1;
-	return (result);
+	if (nb >= 0 && nb < 10)
+	{
+		c = nb + '0';
+		write(fd, &c, 1);
+	}
+	else
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
 }

@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   memcpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 10:00:08 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 11:16:47 by ajosse           ###   ########.fr       */
+/*   Created: 2024/11/09 08:55:44 by marvin            #+#    #+#             */
+/*   Updated: 2024/11/13 12:01:42 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+void	*ft_memcpy(void *destination, const void *source, size_t n)
 {
-	int	i;
-	int	nb_minus_signs;
-	int	result;
+	unsigned char			*dest;
+	const unsigned char		*src;
+	size_t					i;
 
+	dest = (unsigned char *) destination;
+	src = (unsigned char *) source;
 	i = 0;
-	result = 0;
-	nb_minus_signs = 0;
-	while ((9 <= str[i] && str[i] <= 13) || str[i] == 32)
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+	while (i < n)
 	{
-		if (str[i] == '-')
-			nb_minus_signs++;
+		dest[i] = src[i];
 		i++;
 	}
-	while ('0' <= str[i] && str[i] <= '9')
-	{
-		result *= 10;
-		result += str[i] - 48;
-		i++;
-	}
-	if (nb_minus_signs % 2 == 1)
-		result *= -1;
-	return (result);
+	return (destination);
 }

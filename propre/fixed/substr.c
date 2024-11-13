@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   substr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 10:00:08 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 11:16:47 by ajosse           ###   ########.fr       */
+/*   Created: 2024/11/09 10:59:26 by marvin            #+#    #+#             */
+/*   Updated: 2024/11/13 12:04:35 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	i;
-	int	nb_minus_signs;
-	int	result;
+	char		*new;
+	size_t		i;
 
 	i = 0;
-	result = 0;
-	nb_minus_signs = 0;
-	while ((9 <= str[i] && str[i] <= 13) || str[i] == 32)
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+	new = malloc(len + 1);
+	if (new == NULL)
+		return (NULL);
+	while (i < len)
 	{
-		if (str[i] == '-')
-			nb_minus_signs++;
+		new[i] = s[start + i];
 		i++;
 	}
-	while ('0' <= str[i] && str[i] <= '9')
-	{
-		result *= 10;
-		result += str[i] - 48;
-		i++;
-	}
-	if (nb_minus_signs % 2 == 1)
-		result *= -1;
-	return (result);
+	new[i] = '\0';
+	return (new);
 }

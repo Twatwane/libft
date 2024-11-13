@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   strcat.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 10:00:08 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 11:16:47 by ajosse           ###   ########.fr       */
+/*   Created: 2024/10/02 13:08:30 by ajosse            #+#    #+#             */
+/*   Updated: 2024/11/13 10:54:08 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+char	*ft_strcat(char *dest, char *src)
 {
 	int	i;
-	int	nb_minus_signs;
-	int	result;
+	int	j;
 
 	i = 0;
-	result = 0;
-	nb_minus_signs = 0;
-	while ((9 <= str[i] && str[i] <= 13) || str[i] == 32)
+	j = 0;
+	while (dest[i] != '\0')
 		i++;
-	while (str[i] == '+' || str[i] == '-')
+	while (src[j] != '\0')
 	{
-		if (str[i] == '-')
-			nb_minus_signs++;
+		dest[i] = src[j];
 		i++;
+		j++;
 	}
-	while ('0' <= str[i] && str[i] <= '9')
-	{
-		result *= 10;
-		result += str[i] - 48;
-		i++;
-	}
-	if (nb_minus_signs % 2 == 1)
-		result *= -1;
-	return (result);
+	dest[i] = '\0';
+	return (dest);
 }

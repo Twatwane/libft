@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   strmapi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 10:00:08 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 11:16:47 by ajosse           ###   ########.fr       */
+/*   Created: 2024/11/10 10:53:50 by marvin            #+#    #+#             */
+/*   Updated: 2024/11/13 12:05:10 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
-	int	nb_minus_signs;
-	int	result;
+	char	*buffer;
+	int		n;
+	int		i;
 
+	if (!s || !f)
+		return (NULL);
 	i = 0;
-	result = 0;
-	nb_minus_signs = 0;
-	while ((9 <= str[i] && str[i] <= 13) || str[i] == 32)
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+	n = ft_strlen(s);
+	buffer = malloc((n + 1) * sizeof(char));
+	if (!buffer)
+		return (NULL);
+	while (s[i])
 	{
-		if (str[i] == '-')
-			nb_minus_signs++;
+		buffer[i] = f(i, s[i]);
 		i++;
 	}
-	while ('0' <= str[i] && str[i] <= '9')
-	{
-		result *= 10;
-		result += str[i] - 48;
-		i++;
-	}
-	if (nb_minus_signs % 2 == 1)
-		result *= -1;
-	return (result);
+	buffer[i] = '\0';
+	return (buffer);
 }
