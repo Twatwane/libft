@@ -6,13 +6,13 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:53:24 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 12:51:32 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 13:09:48 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strncpy(char *dest, const char *src, int size)
+void	ft_strncpy(char *dest, const char *src, size_t size)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (src[i] && i < size)

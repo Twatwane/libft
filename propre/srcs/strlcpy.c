@@ -6,13 +6,13 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:53:24 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 12:29:08 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 13:01:26 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	ft_strlenpos(char *str)
+static size_t	ft_strlenpos(char *str)
 {
 	unsigned int	counter;
 
@@ -24,18 +24,18 @@ static unsigned int	ft_strlenpos(char *str)
 	return (counter);
 }
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	n;
-	unsigned int	rt;
+	size_t	i;
+	size_t	n;
+	size_t	rt;
 
 	rt = (ft_strlenpos(src));
 	i = 0;
 	n = ft_strlenpos(dest);
 	if (size == 0)
 		return (ft_strlenpos(src));
-	while (src[i] && i < size - 1)
+	while (src[i] && i + 1 < size)
 	{
 		dest[i] = src[i];
 		i++;

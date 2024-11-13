@@ -6,13 +6,13 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 10:00:08 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 12:16:03 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 13:04:28 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *src)
 {
 	int			i;
 	char		*ptr;
