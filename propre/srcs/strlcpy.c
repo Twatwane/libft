@@ -6,7 +6,7 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:53:24 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 13:01:26 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 13:23:32 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ static size_t	ft_strlenpos(char *str)
 size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
 	size_t	i;
-	size_t	n;
 	size_t	rt;
 
 	rt = (ft_strlenpos(src));
 	i = 0;
-	n = ft_strlenpos(dest);
 	if (size == 0)
 		return (ft_strlenpos(src));
 	while (src[i] && i + 1 < size)

@@ -6,7 +6,7 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 22:07:02 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 12:28:23 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 13:24:13 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static char	**copy_strings(int k, char *copy, int length)
 {
 	int		i;
-	char	*anti_error;
 	char	**result;
 
 	result = NULL;
@@ -32,11 +31,11 @@ static char	**copy_strings(int k, char *copy, int length)
 			copy += ft_strlen(copy) + 1;
 		while (copy[0] == '\0' && k > 1)
 			copy++;
-		anti_error = *result++;
+		result++;
 	}
 	(*result) = NULL;
 	while (i--, i >= 0)
-		anti_error = *result--;
+		result--;
 	return (result);
 }
 
