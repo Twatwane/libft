@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   strrchr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 21:12:32 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/14 14:10:16 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/14 13:31:47 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+char	*ft_strrchr(const char *str, int c)
 {
-	size_t	i;
-	size_t	j;
+	int	len;
 
-	i = 0;
-	if (!*to_find)
-		return (str);
-	while (str[i] && i < len)
-	{
-		if (str[i] == to_find[0])
-		{
-			j = 0;
-			while (str[i + j] == to_find[j] && (i + j) < len && to_find[j])
-				j++;
-			if (to_find[j] == '\0')
-				return (str + i);
-		}
-		i++;
-	}
+	len = ft_strlen(str);
+	while (len--, len >= 0)
+		if (str[len] == c)
+			return ((char *) &str[len]);
+	if (c == '\0')
+		return ((char *)&str[len]);
 	return (NULL);
 }

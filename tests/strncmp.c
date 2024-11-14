@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   strncmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 21:12:32 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/14 14:10:16 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 13:17:29 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+int	ft_strncmp(char *s1, char *s2, size_t n)
 {
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	if (!*to_find)
-		return (str);
-	while (str[i] && i < len)
+	while ((s1[i] != '\0' || s2[i] != '\0' ) && i < n)
 	{
-		if (str[i] == to_find[0])
+		if ((int) s1[i] != (int) s2[i])
 		{
-			j = 0;
-			while (str[i + j] == to_find[j] && (i + j) < len && to_find[j])
-				j++;
-			if (to_find[j] == '\0')
-				return (str + i);
+			return ((int) s1[i] - (int) s2[i]);
 		}
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

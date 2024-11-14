@@ -1,36 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   strstr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 21:12:32 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/14 14:10:16 by ajosse           ###   ########.fr       */
+/*   Created: 2024/09/23 23:27:30 by ajosse            #+#    #+#             */
+/*   Updated: 2024/11/13 12:29:17 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+static char	*go_to_where_found(char *str, int i, int j)
 {
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	if (!*to_find)
-		return (str);
-	while (str[i] && i < len)
+	if (j > 0)
 	{
-		if (str[i] == to_find[0])
+		str += i - j;
+	}
+	return (str);
+}
+
+char	*ft_strstr(char *str, char *to_find)
+{
+	int			i;
+	int			j;
+	char		*null_ptr;
+
+	null_ptr = NULL;
+	i = 0;
+	j = 0;
+	if ((str[i] == '\0') && (to_find[i] == '\0'))
+		return (str);
+	while (str[i] != '\0')
+	{
+		if (str[i] == to_find[j])
+			j++;
+		else
 		{
+			if (j > 0)
+				i--;
 			j = 0;
-			while (str[i + j] == to_find[j] && (i + j) < len && to_find[j])
-				j++;
-			if (to_find[j] == '\0')
-				return (str + i);
 		}
 		i++;
+		if (to_find[j] == '\0')
+			return (go_to_where_found(str, i, j));
 	}
-	return (NULL);
+	return (null_ptr);
 }

@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   memchr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 21:12:32 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/14 14:10:16 by ajosse           ###   ########.fr       */
+/*   Created: 2024/11/09 08:55:44 by marvin            #+#    #+#             */
+/*   Updated: 2024/11/13 13:05:32 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+void	*ft_memchr(const void *ptr, int value, size_t num)
 {
-	size_t	i;
-	size_t	j;
+	unsigned char	*memptr;
+	size_t			i;
 
+	memptr = (unsigned char *) ptr;
 	i = 0;
-	if (!*to_find)
-		return (str);
-	while (str[i] && i < len)
-	{
-		if (str[i] == to_find[0])
-		{
-			j = 0;
-			while (str[i + j] == to_find[j] && (i + j) < len && to_find[j])
-				j++;
-			if (to_find[j] == '\0')
-				return (str + i);
-		}
+	while ((memptr[i] != value) && (i < num))
 		i++;
-	}
-	return (NULL);
+	if (i == num)
+		return (NULL);
+	return (&memptr[i]);
 }

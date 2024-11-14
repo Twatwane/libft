@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   strlcpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 21:12:32 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/14 14:10:16 by ajosse           ###   ########.fr       */
+/*   Created: 2024/10/09 17:53:24 by ajosse            #+#    #+#             */
+/*   Updated: 2024/11/13 13:23:32 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+static size_t	ft_strlenpos(char *str)
+{
+	unsigned int	counter;
+
+	counter = 0;
+	while (str[counter] != '\0')
+	{
+		counter++;
+	}
+	return (counter);
+}
+
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
 	size_t	i;
-	size_t	j;
+	size_t	rt;
 
+	rt = (ft_strlenpos(src));
 	i = 0;
-	if (!*to_find)
-		return (str);
-	while (str[i] && i < len)
+	if (size == 0)
+		return (ft_strlenpos(src));
+	while (src[i] && i + 1 < size)
 	{
-		if (str[i] == to_find[0])
-		{
-			j = 0;
-			while (str[i + j] == to_find[j] && (i + j) < len && to_find[j])
-				j++;
-			if (to_find[j] == '\0')
-				return (str + i);
-		}
+		dest[i] = src[i];
 		i++;
 	}
-	return (NULL);
+	dest[i] = '\0';
+	return (rt);
 }

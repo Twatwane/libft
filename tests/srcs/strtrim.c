@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memchr.c                                           :+:      :+:    :+:   */
+/*   strtrim.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 08:55:44 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/14 13:49:51 by ajosse           ###   ########.fr       */
+/*   Created: 2024/11/09 14:25:52 by marvin            #+#    #+#             */
+/*   Updated: 2024/11/13 12:16:51 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *ptr, int value, size_t num)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	unsigned char	*memptr;
-	size_t			i;
+	int		end;
+	int		start;
+	char	*dest;
 
-	memptr = (unsigned char *) ptr;
-	i = 0;
-	while ((memptr[i] != (unsigned char) value) && (i < num))
-		i++;
-	if (i == num)
+	if (!s1 || !set)
 		return (NULL);
-	return (&memptr[i]);
+	start = 0;
+	while (is_in(set, s1[start]) && s1[start])
+		start++;
+	end = ft_strlen(s1) - 1;
+	while (end >= start && is_in(set, s1[end]))
+		end--;
+	dest = (char *) malloc((end - start + 2) * sizeof(char));
+	if (dest == NULL)
+		return (NULL);
+	ft_strncpy(dest, &s1[start], end - start + 1);
+	dest[end - start + 1] = '\0';
+	return (dest);
 }
