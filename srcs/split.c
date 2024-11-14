@@ -6,7 +6,7 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 22:07:02 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 13:24:13 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/14 15:24:25 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static char	**copy_strings(int k, char *copy, int length)
 	{
 		(*result) = (char *) malloc(ft_strlen(copy) + 1 * sizeof(char));
 		ft_strcpy((*result), copy);
+		if (ft_strncmp(copy, "\0", 1) == 0)
+			*result = NULL;
 		if (k > 1)
 			copy += ft_strlen(copy) + 1;
 		while (copy[0] == '\0' && k > 1)
@@ -39,29 +41,24 @@ static char	**copy_strings(int k, char *copy, int length)
 	return (result);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(char const *str, char c)
 {
 	int		i;
-	int		j;
 	int		k;
 	char	*copy;
 
-	i = ((j = ((k = -1))));
+	i = ((k = -1));
 	copy = malloc(ft_strlen(str) + 1 * sizeof(char));
-	ft_strcpy(copy, str);
+	ft_strcpy(copy, (char *) str);
 	while (i++, str[i])
 	{
-		j = -1;
-		while (j++, charset[j])
+		if (copy[i] == c)
 		{
-			if (copy[i] == charset[j])
-			{
-				copy[i] = '\0';
-				if (i != 0 && copy[i - 1] != '\0')
-					k++;
-				if (str[i + 1] == '\0')
-					k--;
-			}
+			copy[i] = '\0';
+			if (i != 0 && copy[i - 1] != '\0')
+				k++;
+			if (str[i + 1] == '\0')
+				k--;
 		}
 	}
 	return (copy_strings(k, copy, ft_strlen(str)));
