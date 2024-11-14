@@ -6,7 +6,7 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:07:19 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 13:13:52 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/13 14:33:36 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 
 int				ft_atoi(char *str);
-void			bzero(void *ptr, size_t len);
+void			ft_bzero(void *ptr, size_t len);
 void			*ft_calloc(size_t nitems, size_t size);
 int				is_in(const char *str, char c);
 int				ft_isalnum(int c);

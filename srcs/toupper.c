@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memset.c                                           :+:      :+:    :+:   */
+/*   toupper.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 21:12:32 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/08 13:25:17 by ajosse           ###   ########.fr       */
+/*   Created: 2024/11/08 11:58:43 by ajosse            #+#    #+#             */
+/*   Updated: 2024/11/13 14:35:50 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_memset(void *ptr, int value, size_t num)
+int	ft_toupper(int c)
 {
-    unsigned char *byte_ptr;
-    unsigned char trunc_value;
-    size_t i;
-
-    byte_ptr = (unsigned char *) ptr;
-    trunc_value = (unsigned char) value;
-    i = 0;
-    while (i < num)
-    {
-        *byte_ptr = trunc_value;
-        byte_ptr++;
-        i++;
-    }
+	if (65 <= c && c <= 90)
+		return (c + 32);
+	return (c);
 }
