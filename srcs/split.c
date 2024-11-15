@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 22:07:02 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/15 14:02:40 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/15 18:28:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ static char	**fill_new(char *separated, int words)
 		new[i] = ft_strdup(separated);
 		if (!new[i])
 		{
-			while (i--)
-				free(new[i]--);
+			while (i-- > 0)
+				free(new[i]);
 			free(new);
 			return (NULL);
 		}
@@ -69,10 +69,13 @@ char	**ft_split(char const *str, char c)
 {
 	int		words;
 	char	*copy;
+	char	**result;
 
 	copy = ft_strdup(str);
 	if (!copy)
 		return (NULL);
 	words = count_words_and_put_null(copy, c);
-	return (fill_new(copy, words));
+	result = (fill_new(copy, words));
+	free(copy);
+	return (result);
 }

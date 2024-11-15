@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/07 02:22:30 by ajosse            #+#    #+#              #
-#    Updated: 2024/11/15 14:24:51 by marvin           ###   ########.fr        #
+#    Updated: 2024/11/15 15:59:39 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,14 @@ $(NAME): $(FILES)
 $(FILES): 
 	$(CC) -c $(CCFLAGS) srcs/$@.c -I includes/ -o srcs/$@.o
 
-test: all
+update:
+	cp ../srcs/*.c srcs
+	cp ../srcs/*.c .
+	cp ../includes/libft.h includes
+	cp includes/libft.h .
+
+test: update all
 	cp srcs/*.o .
-	cp srcs/*.c .
 
 clean:
 	rm -f $(FILES:%=srcs/%.o)

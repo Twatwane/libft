@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   strlcpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:53:24 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 13:23:32 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/15 15:36:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_strlenpos(char *str)
+static size_t	ft_strlenpos(const char *str)
 {
 	unsigned int	counter;
 
@@ -24,7 +24,7 @@ static size_t	ft_strlenpos(char *str)
 	return (counter);
 }
 
-size_t	ft_strlcpy(char *dest, char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	rt;

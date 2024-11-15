@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:07:19 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/14 14:51:33 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/15 18:20:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 
-int				ft_atoi(char *str);
+int				ft_atoi(const char *str);
 void			ft_bzero(void *ptr, size_t len);
 void			*ft_calloc(size_t nitems, size_t size);
 int				is_in(const char *str, char c);
@@ -43,13 +43,13 @@ char			*ft_strcpy(char *dest, char *src);
 char			*ft_strdup(const char *src);
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 char			*ft_strjoin(char const *s1, char const *s2);
-size_t			ft_strlcat(char *dest, char *src, size_t size);
-size_t			ft_strlcpy(char *dest, char *src, size_t size);
+size_t			ft_strlcat(char *dest, const char *src, size_t size);
+size_t			ft_strlcpy(char *dest, const char *src, size_t size);
 size_t			ft_strlen(const char *str);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-int				ft_strncmp(char *s1, char *s2, size_t n);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
 void			ft_strncpy(char *dest, const char *src, size_t size);
-const char		*ft_strnstr(const char *str, const char *to_find, size_t len);
+char			*ft_strnstr(const char *str, const char *to_find, size_t len);
 char			*ft_strrchr(const char *str, int c);
 void			ft_strrev(char *str);
 char			*ft_strstr(char *str, char *to_find);
