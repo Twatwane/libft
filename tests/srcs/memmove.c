@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   memmove.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 10:00:08 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/14 12:17:33 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/15 11:55:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *destination, const void *source, size_t n)
 	const unsigned char		*src;
 	size_t					i;
 
+	if (!destination && !source)
+		return (destination);
 	dest = (unsigned char *) destination;
 	src = (unsigned char *) source;
 	i = 0;

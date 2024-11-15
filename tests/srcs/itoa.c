@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   itoa.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:19:55 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/14 15:50:05 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/15 15:04:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,52 @@ static int	fill_buffer(char *buffer, int i, int n)
 	return (i);
 }
 
+static int	count_digits(int n)
+{
+	int	counter;
+
+	counter = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		n *= -1;
+		counter++;
+	}
+	while (n > 0)
+	{
+		n /= 10;
+		counter++;
+	}
+	return (counter);
+}
+
+char	*exceptions(int n)
+{
+	char	*buffer;
+
+	buffer = NULL;
+	if (n == 0)
+		buffer = ft_strdup("0");
+	else if (n == -2147483648)
+		buffer = ft_strdup("-2147483648");
+	if (!buffer)
+		return (NULL);
+	return (buffer);
+}
+
 char	*ft_itoa(int n)
 {
 	char		*buffer;
-	long int	i;
+	int			i;
 	int			is_negative;
 
-	n = (long int) n;
-	if (n == 0)
-		return (ft_strdup("0"));
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	buffer = ft_calloc(12, sizeof(char));
+	buffer = exceptions(n);
+	if (buffer)
+		return (buffer);
+	buffer = malloc((count_digits(n) + 1) * sizeof(char));
+	if (!buffer)
+		return (NULL);
 	i = ((is_negative = 0));
 	if (n < 0)
 	{

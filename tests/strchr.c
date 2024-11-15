@@ -6,7 +6,7 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 21:12:32 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 13:12:40 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/14 12:31:25 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ char	*ft_strchr(const char *str, int c)
 	while (i++, str[i])
 		if (str[i] == c)
 			return ((char *)&str[i]);
+	if (c == '\0')
+		return ((char *)&str[i]);
 	return (NULL);
 }

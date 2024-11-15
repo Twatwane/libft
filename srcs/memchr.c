@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   memchr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 08:55:44 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/14 13:49:51 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/15 12:09:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ void	*ft_memchr(const void *ptr, int value, size_t num)
 
 	memptr = (unsigned char *) ptr;
 	i = 0;
-	while ((memptr[i] != (unsigned char) value) && (i < num))
+	while (i < num)
+	{
+		if (memptr[i] == (unsigned char) value)
+			return ((void *)&memptr[i]);
 		i++;
-	if (i == num)
-		return (NULL);
-	return (&memptr[i]);
+	}
+	return (NULL);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   memmove.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 10:00:08 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/14 12:12:40 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/15 11:55:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,29 @@
 
 void	*ft_memmove(void *destination, const void *source, size_t n)
 {
+	unsigned char			*dest;
+	const unsigned char		*src;
 	size_t					i;
 
 	if (!destination && !source)
-		return (NULL);
-	if (destination > source)
+		return (destination);
+	dest = (unsigned char *) destination;
+	src = (unsigned char *) source;
+	i = 0;
+	if (dest > src)
 	{
-		i = n - 1;
-		while (i >= 0)
+		i = n;
+		while (i > 0)
 		{
-			((char *)dest)[i] = ((char *)src)[i];
+			dest[i - 1] = src[i - 1];
 			i--;
 		}
+		return (destination);
 	}
 	else
 	{
-		i = 0;
-		while (i <= n)
-		{
-			((char *)dest)[i] = ((char *)src)[i];
-			i++;
-		}
+		while (i++, i <= n)
+			dest[i - 1] = src[i - 1];
+		return (destination);
 	}
-	return (destination);
 }

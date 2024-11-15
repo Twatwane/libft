@@ -6,7 +6,7 @@
 /*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 10:14:31 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/13 13:05:56 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/14 13:59:54 by ajosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
 	p1 = (unsigned char *) ptr1;
 	p2 = (unsigned char *) ptr2;
 	i = 0;
-	while ((i < n) && (p1[i] == p2[i]))
+	while (i < n)
+	{
+		if (p1[i] != p2[i])
+			return (p1[i] - p2[i]);
 		i++;
-	return (p1[i] - p2[i]);
+	}
+	return (0);
 }

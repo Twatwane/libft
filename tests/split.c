@@ -3,66 +3,76 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajosse <ajosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 22:07:02 by ajosse            #+#    #+#             */
-/*   Updated: 2024/11/13 13:24:13 by ajosse           ###   ########.fr       */
+/*   Updated: 2024/11/15 14:02:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**copy_strings(int k, char *copy, int length)
+static int	count_words_and_put_null(char *str, char c)
 {
-	int		i;
-	char	**result;
+	int	counter;
+	int	in_a_word;
 
-	result = NULL;
-	i = -1;
-	k += 3;
-	while (length--, copy[0] == '\0' && length > 0)
-		copy++;
-	result = (char **) malloc(k * sizeof(char *));
-	while (i++, k--, k > 0)
+	if (!str)
+		return (0);
+	counter = 0;
+	in_a_word = 0;
+	while (*str)
 	{
-		(*result) = (char *) malloc(ft_strlen(copy) + 1 * sizeof(char));
-		ft_strcpy((*result), copy);
-		if (k > 1)
-			copy += ft_strlen(copy) + 1;
-		while (copy[0] == '\0' && k > 1)
-			copy++;
-		result++;
+		if (*str != c && in_a_word == 0)
+		{
+			in_a_word = 1;
+			counter++;
+		}
+		else if (*str == c)
+		{
+			in_a_word = 0;
+			*str = '\0';
+		}
+		str++;
 	}
-	(*result) = NULL;
-	while (i--, i >= 0)
-		result--;
-	return (result);
+	return (counter);
 }
 
-char	**ft_split(char *str, char *charset)
+static char	**fill_new(char *separated, int words)
 {
+	char	**new;
 	int		i;
-	int		j;
-	int		k;
+
+	i = -1;
+	new = (char **) malloc((words + 1) * sizeof(char *));
+	if (!new)
+		return (NULL);
+	while (i++, i < words)
+	{
+		while (*separated == '\0')
+			separated++;
+		new[i] = ft_strdup(separated);
+		if (!new[i])
+		{
+			while (i--)
+				free(new[i]--);
+			free(new);
+			return (NULL);
+		}
+		separated += ft_strlen(separated);
+	}
+	new[i] = NULL;
+	return (new);
+}
+
+char	**ft_split(char const *str, char c)
+{
+	int		words;
 	char	*copy;
 
-	i = ((j = ((k = -1))));
-	copy = malloc(ft_strlen(str) + 1 * sizeof(char));
-	ft_strcpy(copy, str);
-	while (i++, str[i])
-	{
-		j = -1;
-		while (j++, charset[j])
-		{
-			if (copy[i] == charset[j])
-			{
-				copy[i] = '\0';
-				if (i != 0 && copy[i - 1] != '\0')
-					k++;
-				if (str[i + 1] == '\0')
-					k--;
-			}
-		}
-	}
-	return (copy_strings(k, copy, ft_strlen(str)));
+	copy = ft_strdup(str);
+	if (!copy)
+		return (NULL);
+	words = count_words_and_put_null(copy, c);
+	return (fill_new(copy, words));
 }
