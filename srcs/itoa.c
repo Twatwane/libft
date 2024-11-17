@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:19:55 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/15 15:04:00 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/17 00:59:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,8 @@ char	*ft_itoa(int n)
 	int			i;
 	int			is_negative;
 
-	buffer = exceptions(n);
-	if (buffer)
-		return (buffer);
+	if (n == 0 || n == -2147483648)
+		return (exceptions(n));
 	buffer = malloc((count_digits(n) + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
